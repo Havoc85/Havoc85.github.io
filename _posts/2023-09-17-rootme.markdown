@@ -3,6 +3,7 @@ layout: post
 title:  "THM: RootMe"
 date:   2023-09-17 13:37:00 +0200
 categories: ctf writeup
+author: d33pjs
 ---
 
 Das erste CTF welches ich auf TryHackMe getestet habe, war "RootMe". Allerdings keine Empfehlung von mir, weil viel zu einfach.
