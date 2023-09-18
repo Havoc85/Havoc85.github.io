@@ -1,0 +1,87 @@
+---
+layout: post
+title:  "THM: RootMe"
+date:   2023-09-17 13:37:00 +0200
+categories: ctf writeup
+---
+
+Das erste CTF welches ich auf TryHackMe getestet habe, war "RootMe". Allerdings keine Empfehlung von mir, weil viel zu einfach.
+
+Trotzdem hier das WriteUp.
+
+[https://tryhackme.com/room/rrootme](https://tryhackme.com/room/rrootme)
+
+![beginning](/assets/rootme.png)
+
+# Step 1: nmap
+
+`nmap -A <ip>`
+
+Dafür hab ich nicht mal einen Screenshot oder so... Standard 80/tcp + 22/tcp offen
+
+# Step 2: dirb
+
+`dirb http://<ip>`
+
+In Schritt zwei hab ich mir den Webserver näher angeschaut. Dabei hab ich die default Wordlist von Dirbuster genutzt. Auffällig waren die Verzeichnisse `uploads` und `panel`
+
+# Step 3: Panel
+
+Das Panelverzeichnis bietet offenbar die Möglichkeit Daten hoch zu laden. Auch wenn mein spanisch nicht das Beste ist: Grün = hochgeladen, rot = abgelehnt.
+
+![upload panel](/assets/panel.png)
+
+Hier hab ich ein bisschen rum gespielt. Da ich über die `http://<ip>/uploads/` auf die hochgeladenen Daten zugreifen konnte, musste ich etwas hochladen, dass ich mit einem standard Apache+PHP (oder war's ein nginx? egal...) ausführen kann (Perl, HTA und sowas kamen nicht in Frage).
+
+### Versuch 1:
+- webshell.php
+Abgelehnt. Keine PHP Dateien erlaubt (oder so ähnlich... rot halt. Mein Spanisch, ihr wisst ja...)
+
+### Versuch 2:
+- webshell.php.jpg
+Akzeptiert, aber nicht exploitable.
+Die `.jpg` Extension wird nicht entfernt (warum auch...) und der Browser interpretiert es auch als JPG (was schief läuft).
+Das zeigt mir aber auch: Der MIME Type wird nicht betrachtet, sondern das Panel prüft nur die Fileextension.
+
+### Versuch 3:
+- webshell.pl
+Akzeptiert, aber nicht exploitable.
+Perl wird nicht ausgeführt (weder nach dem Upload noch lässt sich eine Execution irgendwie herbeiführen)
+Selbes für .sh (shell script)...
+
+### Versuch 4:
+- webshell.pHp
+Abgelehnt. Camel Cases werden von dem Panel überprüft und abgelehnt
+
+### Versuch 5:
+- webshell.php5
+Akzeptiert. Woohoo.
+
+# Step 4: Webshell nutzen
+Da der Webserver so konfiguriert ist, dass er `.php5` file extensions interpretiert und ausführt, konnte ich die `simple-backdoor.php` (unter Kali `/usr/share/webshells/php` zu finden) nutzen um mir beispielsweise die `/etc/passwd` anzeigen zu lassen.
+
+![basic php webshell](/assets/php_basic_shell.png)
+
+Auffällig waren die beiden user: `test` und `rootme`.
+
+# Step 5: SSH Login
+
+Wenn mir ein User über den Weg läuft, teste ich zumindest 2, 3 standard PWs (in vollem Bewusstsein, dass das schon einen Lockout provozieren könnte). Der erste Treffen funktionierte: `test:test`.
+
+Also direkt nach dem ersten Flag schauen... (hätte man natürlich auch schon mit der simple-backdoor raus bekommen können):
+
+![first flag](/assets/test_user_txt.png)
+
+# Step 6: How to get root?
+
+An das root flag komme ich wohl höchstens mit Root Rechten. Die Frage: Wie an root kommen? Erst mal nach Setuid suchen:
+
+![setuid](/assets/setuid.png)
+
+Auffällig in der Liste war `python`... Also ein bisschen ausprobieren.
+
+# Step 7: python exploiten
+
+Mit Python dann eine root Shell eröffnet und das Flag extrahiert:
+
+![python root shell and flag](/assets/root_txt.png)
