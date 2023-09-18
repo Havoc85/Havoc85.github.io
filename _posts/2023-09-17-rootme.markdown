@@ -35,26 +35,31 @@ Hier hab ich ein bisschen rum gespielt. Da ich über die `http://<ip>/uploads/` 
 
 ### Versuch 1:
 - webshell.php
+
 Abgelehnt. Keine PHP Dateien erlaubt (oder so ähnlich... rot halt. Mein Spanisch, ihr wisst ja...)
 
 ### Versuch 2:
 - webshell.php.jpg
+
 Akzeptiert, aber nicht exploitable.
 Die `.jpg` Extension wird nicht entfernt (warum auch...) und der Browser interpretiert es auch als JPG (was schief läuft).
 Das zeigt mir aber auch: Der MIME Type wird nicht betrachtet, sondern das Panel prüft nur die Fileextension.
 
 ### Versuch 3:
 - webshell.pl
+
 Akzeptiert, aber nicht exploitable.
 Perl wird nicht ausgeführt (weder nach dem Upload noch lässt sich eine Execution irgendwie herbeiführen)
 Selbes für .sh (shell script)...
 
 ### Versuch 4:
 - webshell.pHp
+
 Abgelehnt. Camel Cases werden von dem Panel überprüft und abgelehnt
 
 ### Versuch 5:
 - webshell.php5
+
 Akzeptiert. Woohoo.
 
 # Step 4: Webshell nutzen
