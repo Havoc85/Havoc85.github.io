@@ -106,6 +106,8 @@ Kinder, deswegen muss man jede noch so kleine Datei auf einem Linux ansehen, den
 
 ![hosts](/assets/overpass/overpass_hosts.png)
 
+Zur Erklärung, in dem Screenshot ist schon die Hosts Datei editiert. Der Host stand eigentlich auf 127.0.0.1
+
 Wir könnten die Hosts ändern und die URL aus der Crontab (`overpass.thm/downloads/src/buildscript.sh`) auf einen, durch uns kontrollierten Webserver, schicken.
 
 ### build buildscript
