@@ -1,0 +1,294 @@
+---
+layout: post
+title:  "THM: Ra 2"
+date:   2023-09-31 22:19:00 +0200
+categories: ctf writeup
+author: d33pjs
+---
+
+`nmap -A -Pn 10.10.168.136 `
+{% highlight bash %}
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-09-29 22:10 CEST
+Nmap scan report for 10.10.168.136
+Host is up (0.075s latency).
+Not shown: 978 filtered tcp ports (no-response)
+PORT     STATE SERVICE             VERSION
+53/tcp   open  domain              Simple DNS Plus
+80/tcp   open  http                Microsoft IIS httpd 10.0
+|_http-title: Did not follow redirect to https://fire.windcorp.thm/
+|_http-server-header: Microsoft-IIS/10.0
+88/tcp   open  kerberos-sec        Microsoft Windows Kerberos (server time: 2023-09-29 20:11:01Z)
+135/tcp  open  msrpc               Microsoft Windows RPC
+139/tcp  open  netbios-ssn         Microsoft Windows netbios-ssn
+389/tcp  open  ldap                Microsoft Windows Active Directory LDAP (Domain: windcorp.thm0., Site: Default-First-Site-Name)
+|_ssl-date: 2023-09-29T20:12:22+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:selfservice.windcorp.thm, DNS:selfservice.dev.windcorp.thm
+| Not valid before: 2020-05-29T03:31:08
+|_Not valid after:  2028-05-29T03:41:03
+443/tcp  open  ssl/http            Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_ssl-date: 2023-09-29T20:12:22+00:00; 0s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+|_http-title: Not Found
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:selfservice.windcorp.thm, DNS:selfservice.dev.windcorp.thm
+| Not valid before: 2020-05-29T03:31:08
+|_Not valid after:  2028-05-29T03:41:03
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http          Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  ssl/ldap
+|_ssl-date: 2023-09-29T20:12:22+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:selfservice.windcorp.thm, DNS:selfservice.dev.windcorp.thm
+| Not valid before: 2020-05-29T03:31:08
+|_Not valid after:  2028-05-29T03:41:03
+2179/tcp open  vmrdp?
+3268/tcp open  ldap                Microsoft Windows Active Directory LDAP (Domain: windcorp.thm0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:selfservice.windcorp.thm, DNS:selfservice.dev.windcorp.thm
+| Not valid before: 2020-05-29T03:31:08
+|_Not valid after:  2028-05-29T03:41:03
+|_ssl-date: 2023-09-29T20:12:22+00:00; 0s from scanner time.
+3269/tcp open  ssl/ldap            Microsoft Windows Active Directory LDAP (Domain: windcorp.thm0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:selfservice.windcorp.thm, DNS:selfservice.dev.windcorp.thm
+| Not valid before: 2020-05-29T03:31:08
+|_Not valid after:  2028-05-29T03:41:03
+|_ssl-date: 2023-09-29T20:12:22+00:00; 0s from scanner time.
+3389/tcp open  ms-wbt-server       Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: WINDCORP
+|   NetBIOS_Domain_Name: WINDCORP
+|   NetBIOS_Computer_Name: FIRE
+|   DNS_Domain_Name: windcorp.thm
+|   DNS_Computer_Name: Fire.windcorp.thm
+|   DNS_Tree_Name: windcorp.thm
+|   Product_Version: 10.0.17763
+|_  System_Time: 2023-09-29T20:11:42+00:00
+| ssl-cert: Subject: commonName=Fire.windcorp.thm
+| Not valid before: 2023-09-28T20:10:42
+|_Not valid after:  2024-03-29T20:10:42
+|_ssl-date: 2023-09-29T20:12:22+00:00; 0s from scanner time.
+5222/tcp open  jabber              Ignite Realtime Openfire Jabber server 3.10.0 or later
+|_ssl-date: 2023-09-29T20:12:23+00:00; -1s from scanner time.
+| xmpp-info: 
+|   STARTTLS Failed
+|   info: 
+|     unknown: 
+|     capabilities: 
+|     auth_mechanisms: 
+|     features: 
+|     errors: 
+|       invalid-namespace
+|       (timeout)
+|     xmpp: 
+|       version: 1.0
+|     compression_methods: 
+|_    stream_id: 61rmxggly6
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:*.fire.windcorp.thm
+| Not valid before: 2020-05-01T08:39:00
+|_Not valid after:  2025-04-30T08:39:00
+5269/tcp open  xmpp                Wildfire XMPP Client
+| xmpp-info: 
+|   STARTTLS Failed
+|   info: 
+|     unknown: 
+|     auth_mechanisms: 
+|     features: 
+|     errors: 
+|       (timeout)
+|     xmpp: 
+|     compression_methods: 
+|_    capabilities: 
+7070/tcp open  http                Jetty 9.4.18.v20190429
+|_http-server-header: Jetty(9.4.18.v20190429)
+|_http-title: Openfire HTTP Binding Service
+7443/tcp open  ssl/http            Jetty 9.4.18.v20190429
+|_http-server-header: Jetty(9.4.18.v20190429)
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:*.fire.windcorp.thm
+| Not valid before: 2020-05-01T08:39:00
+|_Not valid after:  2025-04-30T08:39:00
+|_http-title: Openfire HTTP Binding Service
+7777/tcp open  socks5              (No authentication; connection not allowed by ruleset)
+| socks-auth-info: 
+|_  No authentication
+9090/tcp open  zeus-admin?
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Date: Fri, 29 Sep 2023 20:10:56 GMT
+|     Last-Modified: Fri, 31 Jan 2020 17:54:10 GMT
+|     Content-Type: text/html
+|     Accept-Ranges: bytes
+|     Content-Length: 115
+|     <html>
+|     <head><title></title>
+|     <meta http-equiv="refresh" content="0;URL=index.jsp">
+|     </head>
+|     <body>
+|     </body>
+|     </html>
+|   HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Date: Fri, 29 Sep 2023 20:11:02 GMT
+|     Allow: GET,HEAD,POST,OPTIONS
+|   JavaRMI, drda, ibm-db2-das, informix: 
+|     HTTP/1.1 400 Illegal character CNTL=0x0
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 69
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: Illegal character CNTL=0x0</pre>
+|   SqueezeCenter_CLI: 
+|     HTTP/1.1 400 No URI
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 49
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: No URI</pre>
+|   WMSRequest: 
+|     HTTP/1.1 400 Illegal character CNTL=0x1
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 69
+|     Connection: close
+|_    <h1>Bad Message 400</h1><pre>reason: Illegal character CNTL=0x1</pre>
+9091/tcp open  ssl/xmltec-xmlmail?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP: 
+|     HTTP/1.1 400 Illegal character CNTL=0x0
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 69
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: Illegal character CNTL=0x0</pre>
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Date: Fri, 29 Sep 2023 20:11:19 GMT
+|     Last-Modified: Fri, 31 Jan 2020 17:54:10 GMT
+|     Content-Type: text/html
+|     Accept-Ranges: bytes
+|     Content-Length: 115
+|     <html>
+|     <head><title></title>
+|     <meta http-equiv="refresh" content="0;URL=index.jsp">
+|     </head>
+|     <body>
+|     </body>
+|     </html>
+|   HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Date: Fri, 29 Sep 2023 20:11:20 GMT
+|     Allow: GET,HEAD,POST,OPTIONS
+|   Help: 
+|     HTTP/1.1 400 No URI
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 49
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: No URI</pre>
+|   RPCCheck: 
+|     HTTP/1.1 400 Illegal character OTEXT=0x80
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 71
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: Illegal character OTEXT=0x80</pre>
+|   RTSPRequest: 
+|     HTTP/1.1 400 Unknown Version
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 58
+|     Connection: close
+|     <h1>Bad Message 400</h1><pre>reason: Unknown Version</pre>
+|   SSLSessionReq: 
+|     HTTP/1.1 400 Illegal character CNTL=0x16
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 70
+|     Connection: close
+|_    <h1>Bad Message 400</h1><pre>reason: Illegal character CNTL=0x16</pre>
+| ssl-cert: Subject: commonName=fire.windcorp.thm
+| Subject Alternative Name: DNS:fire.windcorp.thm, DNS:*.fire.windcorp.thm
+| Not valid before: 2020-05-01T08:39:00
+|_Not valid after:  2025-04-30T08:39:00
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port9090-TCP:V=7.94%I=7%D=9/29%Time=65172F50%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,11D,"HTTP/1\.1\x20200\x20OK\r\nDate:\x20Fri,\x2029\x20Sep\x202
+SF:023\x2020:10:56\x20GMT\r\nLast-Modified:\x20Fri,\x2031\x20Jan\x202020\x
+SF:2017:54:10\x20GMT\r\nContent-Type:\x20text/html\r\nAccept-Ranges:\x20by
+SF:tes\r\nContent-Length:\x20115\r\n\r\n<html>\n<head><title></title>\n<me
+SF:ta\x20http-equiv=\"refresh\"\x20content=\"0;URL=index\.jsp\">\n</head>\
+SF:n<body>\n</body>\n</html>\n\n")%r(JavaRMI,C3,"HTTP/1\.1\x20400\x20Illeg
+SF:al\x20character\x20CNTL=0x0\r\nContent-Type:\x20text/html;charset=iso-8
+SF:859-1\r\nContent-Length:\x2069\r\nConnection:\x20close\r\n\r\n<h1>Bad\x
+SF:20Message\x20400</h1><pre>reason:\x20Illegal\x20character\x20CNTL=0x0</
+SF:pre>")%r(WMSRequest,C3,"HTTP/1\.1\x20400\x20Illegal\x20character\x20CNT
+SF:L=0x1\r\nContent-Type:\x20text/html;charset=iso-8859-1\r\nContent-Lengt
+SF:h:\x2069\r\nConnection:\x20close\r\n\r\n<h1>Bad\x20Message\x20400</h1><
+SF:pre>reason:\x20Illegal\x20character\x20CNTL=0x1</pre>")%r(ibm-db2-das,C
+SF:3,"HTTP/1\.1\x20400\x20Illegal\x20character\x20CNTL=0x0\r\nContent-Type
+SF::\x20text/html;charset=iso-8859-1\r\nContent-Length:\x2069\r\nConnectio
+SF:n:\x20close\r\n\r\n<h1>Bad\x20Message\x20400</h1><pre>reason:\x20Illega
+SF:l\x20character\x20CNTL=0x0</pre>")%r(SqueezeCenter_CLI,9B,"HTTP/1\.1\x2
+SF:0400\x20No\x20URI\r\nContent-Type:\x20text/html;charset=iso-8859-1\r\nC
+SF:ontent-Length:\x2049\r\nConnection:\x20close\r\n\r\n<h1>Bad\x20Message\
+SF:x20400</h1><pre>reason:\x20No\x20URI</pre>")%r(informix,C3,"HTTP/1\.1\x
+SF:20400\x20Illegal\x20character\x20CNTL=0x0\r\nContent-Type:\x20text/html
+SF:;charset=iso-8859-1\r\nContent-Length:\x2069\r\nConnection:\x20close\r\
+SF:n\r\n<h1>Bad\x20Message\x20400</h1><pre>reason:\x20Illegal\x20character
+SF:\x20CNTL=0x0</pre>")%r(drda,C3,"HTTP/1\.1\x20400\x20Illegal\x20characte
+SF:r\x20CNTL=0x0\r\nContent-Type:\x20text/html;charset=iso-8859-1\r\nConte
+SF:nt-Length:\x2069\r\nConnection:\x20close\r\n\r\n<h1>Bad\x20Message\x204
+SF:00</h1><pre>reason:\x20Illegal\x20character\x20CNTL=0x0</pre>")%r(HTTPO
+SF:ptions,56,"HTTP/1\.1\x20200\x20OK\r\nDate:\x20Fri,\x2029\x20Sep\x202023
+SF:\x2020:11:02\x20GMT\r\nAllow:\x20GET,HEAD,POST,OPTIONS\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port9091-TCP:V=7.94%T=SSL%I=7%D=9/29%Time=65172F68%P=x86_64-pc-linux-gn
+SF:u%r(GetRequest,11D,"HTTP/1\.1\x20200\x20OK\r\nDate:\x20Fri,\x2029\x20Se
+SF:p\x202023\x2020:11:19\x20GMT\r\nLast-Modified:\x20Fri,\x2031\x20Jan\x20
+SF:2020\x2017:54:10\x20GMT\r\nContent-Type:\x20text/html\r\nAccept-Ranges:
+SF:\x20bytes\r\nContent-Length:\x20115\r\n\r\n<html>\n<head><title></title
+SF:>\n<meta\x20http-equiv=\"refresh\"\x20content=\"0;URL=index\.jsp\">\n</
+SF:head>\n<body>\n</body>\n</html>\n\n")%r(HTTPOptions,56,"HTTP/1\.1\x2020
+SF:0\x20OK\r\nDate:\x20Fri,\x2029\x20Sep\x202023\x2020:11:20\x20GMT\r\nAll
+SF:ow:\x20GET,HEAD,POST,OPTIONS\r\n\r\n")%r(RTSPRequest,AD,"HTTP/1\.1\x204
+SF:00\x20Unknown\x20Version\r\nContent-Type:\x20text/html;charset=iso-8859
+SF:-1\r\nContent-Length:\x2058\r\nConnection:\x20close\r\n\r\n<h1>Bad\x20M
+SF:essage\x20400</h1><pre>reason:\x20Unknown\x20Version</pre>")%r(RPCCheck
+SF:,C7,"HTTP/1\.1\x20400\x20Illegal\x20character\x20OTEXT=0x80\r\nContent-
+SF:Type:\x20text/html;charset=iso-8859-1\r\nContent-Length:\x2071\r\nConne
+SF:ction:\x20close\r\n\r\n<h1>Bad\x20Message\x20400</h1><pre>reason:\x20Il
+SF:legal\x20character\x20OTEXT=0x80</pre>")%r(DNSVersionBindReqTCP,C3,"HTT
+SF:P/1\.1\x20400\x20Illegal\x20character\x20CNTL=0x0\r\nContent-Type:\x20t
+SF:ext/html;charset=iso-8859-1\r\nContent-Length:\x2069\r\nConnection:\x20
+SF:close\r\n\r\n<h1>Bad\x20Message\x20400</h1><pre>reason:\x20Illegal\x20c
+SF:haracter\x20CNTL=0x0</pre>")%r(DNSStatusRequestTCP,C3,"HTTP/1\.1\x20400
+SF:\x20Illegal\x20character\x20CNTL=0x0\r\nContent-Type:\x20text/html;char
+SF:set=iso-8859-1\r\nContent-Length:\x2069\r\nConnection:\x20close\r\n\r\n
+SF:<h1>Bad\x20Message\x20400</h1><pre>reason:\x20Illegal\x20character\x20C
+SF:NTL=0x0</pre>")%r(Help,9B,"HTTP/1\.1\x20400\x20No\x20URI\r\nContent-Typ
+SF:e:\x20text/html;charset=iso-8859-1\r\nContent-Length:\x2049\r\nConnecti
+SF:on:\x20close\r\n\r\n<h1>Bad\x20Message\x20400</h1><pre>reason:\x20No\x2
+SF:0URI</pre>")%r(SSLSessionReq,C5,"HTTP/1\.1\x20400\x20Illegal\x20charact
+SF:er\x20CNTL=0x16\r\nContent-Type:\x20text/html;charset=iso-8859-1\r\nCon
+SF:tent-Length:\x2070\r\nConnection:\x20close\r\n\r\n<h1>Bad\x20Message\x2
+SF:0400</h1><pre>reason:\x20Illegal\x20character\x20CNTL=0x16</pre>");
+Service Info: Host: FIRE; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2023-09-29T20:11:45
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled and required
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 101.92 seconds
+{% endhighlight %}
+
+# 2
+
+Openfire login: Screenshot
+
+Openfire Vulnerable: Screenshot
+https://github.com/igniterealtime/Openfire/security/advisories/GHSA-gw42-f939-fhvm
