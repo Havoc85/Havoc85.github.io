@@ -1,10 +1,11 @@
 ---
 layout: post
 title:  "THM: Ra 2"
-date:   2023-09-31 22:19:00 +0200
+date:   2023-10-10 22:19:00 +0200
 categories: ctf writeup
 author: d33pjs
 ---
+# 1
 
 `nmap -A -Pn 10.10.168.136 `
 {% highlight bash %}
@@ -292,3 +293,24 @@ Openfire login: Screenshot
 
 Openfire Vulnerable: Screenshot
 https://github.com/igniterealtime/Openfire/security/advisories/GHSA-gw42-f939-fhvm
+
+Metasploit:
+options screenshot
+
+exploit fehlgeschlagen
+evtl. wegen Firewall?
+fehler im log
+
+# 3
+`dirb https://10.10.168.136 `
+http leitet auf `https://fire.windcorp.thm/` um...
+
+Kein Ergebnis mit dirb commonlist: screenshot
+
+# 4
+
+ldapdumpdomain anon: screenshot, kein ergebnis
+
+
+
+
