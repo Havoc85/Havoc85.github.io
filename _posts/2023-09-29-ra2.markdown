@@ -298,7 +298,7 @@ Metasploit:
 options screenshot
 
 exploit fehlgeschlagen
-evtl. wegen Firewall?
+evtl. wegen Firewall? 443 statt 4444 hat auch nicht funktioniert
 fehler im log
 
 # 3
