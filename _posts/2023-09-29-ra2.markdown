@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "THM: Ra 2"
-date:   2023-10-10 22:19:00 +0200
+date:   2030-09-25 22:19:00 +0200
 categories: ctf writeup
 author: d33pjs
 ---
@@ -293,24 +293,3 @@ Openfire login: Screenshot
 
 Openfire Vulnerable: Screenshot
 https://github.com/igniterealtime/Openfire/security/advisories/GHSA-gw42-f939-fhvm
-
-Metasploit:
-options screenshot
-
-exploit fehlgeschlagen
-evtl. wegen Firewall? 443 statt 4444 hat auch nicht funktioniert
-fehler im log
-
-# 3
-`dirb https://10.10.168.136 `
-http leitet auf `https://fire.windcorp.thm/` um...
-
-Kein Ergebnis mit dirb commonlist: screenshot
-
-# 4
-
-ldapdumpdomain anon: screenshot, kein ergebnis
-
-
-
-
