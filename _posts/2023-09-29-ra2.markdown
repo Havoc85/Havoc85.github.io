@@ -1868,6 +1868,13 @@ msf6 auxiliary(scanner/smb/smb_enumusers_domain) >
 {% endhighlight %}
 
 
+# 7 
+
+Komme nicht weiter, mal mit dirb testen, wenn der vhost gesetzt ist...
+
+
+
+
 
 
 
