@@ -1872,7 +1872,184 @@ msf6 auxiliary(scanner/smb/smb_enumusers_domain) >
 
 Komme nicht weiter, mal mit dirb testen, wenn der vhost gesetzt ist...
 
+`dirb https://fire.windcorp.thm /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -w`
 
+Schon wieder abgebrochen...
+
+{% highlight bash %}
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Wed Oct 11 09:11:12 2023
+URL_BASE: https://fire.windcorp.thm/
+WORDLIST_FILES: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+OPTION: Not Stopping on warning messages
+
+-----------------
+
+GENERATED WORDS: 219174$
+(!) WARNING: Wordlist is too large. This will take a long time to end.
+    (Use mode '-w' if you want to scan anyway)
+
+---- Scanning URL: https://fire.windcorp.thm/ ----
+==> DIRECTORY: https://fire.windcorp.thm/img/
+==> DIRECTORY: https://fire.windcorp.thm/css/
+==> DIRECTORY: https://fire.windcorp.thm/vendor/
+==> DIRECTORY: https://fire.windcorp.thm/IMG/
++ https://fire.windcorp.thm/*checkout* (CODE:400|IZE:3420)
+==> DIRECTORY: https://fire.windcorp.thm/CSS/
+==> DIRECTORY: https://fire.windcorp.thm/Img/
++ https://fire.windcorp.thm/*docroot* (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/* (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/http%3A%2F%2Fwww (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/http%3A (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/q%26a (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/**http%3a (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/*http%3A (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/powershell (CODE:302|SIZE:165)
++ https://fire.windcorp.thm/**http%3A (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/http%3A%2F%2Fyoutube (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/http%3A%2F%2Fblogs (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/http%3A%2F%2Fblog (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/**http%3A%2F%2Fwww (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/s%26p (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/%3FRID%3D2671 (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/devinmoore* (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/ithappened (CODE:503|SIZE:326)
++ https://fire.windcorp.thm/citypolitic (CODE:503|SIZE:326)
++ https://fire.windcorp.thm/podcast_detail (CODE:503|SIZE:326)
++ https://fire.windcorp.thm/az_2005 (CODE:503|SIZE:326)
++ https://fire.windcorp.thm/videolookbook (CODE:503|SIZE:326)
++ https://fire.windcorp.thm/bx_list (CODE:503|SIZE:326)
++ https://fire.windcorp.thm/nr_list (CODE:503|SIZE:326)
++ https://fire.windcorp.thm/np_a (CODE:503|SIZE:326)
+$
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: OPERATION TIMEOUT)
+$
+-----------------
+END_TIME: Wed Oct 11 11:47:40 2023
+DOWNLOADED: 148948 - FOUND: 25
+{% endhighlight %}
+
+https://fire.windcorp.thm/powershell/ führt tatsächlich zu einem Windows PowerShell Web Acess o_O
+Allerdings keine Credentials...
+{% highlight bash %}
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Wed Oct 11 13:13:51 2023
+URL_BASE: https://fire.windcorp.thm/
+WORDLIST_FILES: /usr/share/wordlists/dirbuster/directory-list-1.0.txt
+OPTION: Not Stopping on warning messages
+
+-----------------
+
+GENERATED WORDS: 141600$
+(!) WARNING: Wordlist is too large. This will take a long time to end.
+    (Use mode '-w' if you want to scan anyway)
+
+---- Scanning URL: https://fire.windcorp.thm/ ----
+==> DIRECTORY: https://fire.windcorp.thm/img/
++ https://fire.windcorp.thm/\" (CODE:400|SIZE:324)
++ https://fire.windcorp.thm/* (CODE:400|SIZE:3420)
+==> DIRECTORY: https://fire.windcorp.thm/css/
++ https://fire.windcorp.thm/*checkout* (CODE:400|SIZE:3420)
+==> DIRECTORY: https://fire.windcorp.thm/vendor/
++ https://fire.windcorp.thm/Buying-a-laptop%3F-12-tips-for-you%21 (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/Buying-a-computer%3F-Ask-these-3-questions%21 (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/*http%3A (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/%E6%B2%A2%E5%B0%BB%E3%82%A8%E3%83%AA%E3%82%AB%3AErica%E3%82%A8%E3%83%AA%E3%82%AB (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/%E7%B6%BE%E7%80%AC%E3%81%AF%E3%82%8B%E3%81%8B%3AJUMP%21 (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/0SwAAAMEWDFg8YsQFLdGdWso9*LDKH69RwYRFVfWLY4!R4cshBFiF828rHevN*G079wmFnW5w4RT0cU5zPnZGHVzvRQ6ESOhcsPLje2upEXOxBrlHMYGylQ (CODE:400|SIZE:3420)
++ https://fire.windcorp.thm/pp%26o (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/Tips_%26amp%3b_Tricks (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/\ (CODE:200|SIZE:11832)$
++ https://fire.windcorp.thm/reports%20%26%20meeting%20minutes (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/200109* (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/\"globals (CODE:400|SIZE:324)$
++ https://fire.windcorp.thm/*docroot* (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/*dc_ (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/*sa_ (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/**http%3a (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/**http%3A%2F%2Fwww (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/%3c200505050346 (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/%3cNBBBJGEAGJAKLIDBKJOPMEFLAPAC (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/ejme6ixd9s\" (CODE:400|SIZE:324)$
++ https://fire.windcorp.thm/**http%3A%2F%2Fad (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/mtitenterprises" (CODE:400|SIZE:324)$
++ https://fire.windcorp.thm/myblogs\" (CODE:400|SIZE:324)$
++ https://fire.windcorp.thm/safari\" (CODE:400|SIZE:324)$
++ https://fire.windcorp.thm/_Face_testing_at_Logan_is_fo%0Dund_lacking%2B (CODE:400|SIZE:324)$
++ https://fire.windcorp.thm/health_%26_beauty (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/blog\" (CODE:400|SIZE:324)$
+$
+---- Entering directory: https://fire.windcorp.thm/img/ ----
++ https://fire.windcorp.thm/img/\" (CODE:400|SIZE:324)$
++ https://fire.windcorp.thm/img/* (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/*checkout* (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/Buying-a-laptop%3F-12-tips-for-you%21 (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/Buying-a-computer%3F-Ask-these-3-questions%21 (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/*http%3A (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/%E6%B2%A2%E5%B0%BB%E3%82%A8%E3%83%AA%E3%82%AB%3AErica%E3%82%A8%E3%83%AA%E3%82%AB (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/%E7%B6%BE%E7%80%AC%E3%81%AF%E3%82%8B%E3%81%8B%3AJUMP%21 (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/0SwAAAMEWDFg8YsQFLdGdWso9*LDKH69RwYRFVfWLY4!R4cshBFiF828rHevN*G079wmFnW5w4RT0cU5zPnZGHVzvRQ6ESOhcsPLje2upEXOxBrlHMYGylQ (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/pp%26o (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/Tips_%26amp%3b_Tricks (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/\ (CODE:403|SIZE:1233)$
++ https://fire.windcorp.thm/img/reports%20%26%20meeting%20minutes (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/200109* (CODE:400|SIZE:3420)$
++ https://fire.windcorp.thm/img/\"globals (CODE:400|SIZE:324)$
+^C> Testing: https://fire.windcorp.thm/img/europe_in_space
+{% endhighlight %}
+
+
+
+
+
+{% highlight bash %}
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Wed Oct 11 16:17:02 2023
+URL_BASE: https://selfservice.dev.windcorp.thm/
+WORDLIST_FILES: /usr/share/wordlists/dirbuster/directory-list-1.0.txt
+OPTION: Not Stopping on warning messages
+
+-----------------
+
+GENERATED WORDS: 141600$
+(!) WARNING: Wordlist is too large. This will take a long time to end.
+    (Use mode '-w' if you want to scan anyway)
+
+---- Scanning URL: https://selfservice.dev.windcorp.thm/ ----
++ https://selfservice.dev.windcorp.thm/\" (CODE:400|SIZE:324)$
++ https://selfservice.dev.windcorp.thm/* (CODE:400|SIZE:3420)
++ https://selfservice.dev.windcorp.thm/*checkout* (CODE:400|SIZE:3420)
++ https://selfservice.dev.windcorp.thm/Buying-a-laptop%3F-12-tips-for-you%21 (CODE:400|SIZE:3420)
++ https://selfservice.dev.windcorp.thm/Buying-a-computer%3F-Ask-these-3-questions%21 (CODE:400|SIZE:3420)
+==> DIRECTORY: https://selfservice.dev.windcorp.thm/Backup/
++ https://selfservice.dev.windcorp.thm/*http%3A (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/%E6%B2%A2%E5%B0%BB%E3%82%A8%E3%83%AA%E3%82%AB%3AErica%E3%82%A8%E3%83%AA%E3%82%AB (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/%E7%B6%BE%E7%80%AC%E3%81%AF%E3%82%8B%E3%81%8B%3AJUMP%21 (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/0SwAAAMEWDFg8YsQFLdGdWso9*LDKH69RwYRFVfWLY4!R4cshBFiF828rHevN*G079wmFnW5w4RT0cU5zPnZGHVzvRQ6ESOhcsPLje2upEXOxBrlHMYGylQ (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/pp%26o (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/Tips_%26amp%3b_Tricks (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/\ (CODE:200|SIZE:106)$
++ https://selfservice.dev.windcorp.thm/reports%20%26%20meeting%20minutes (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/200109* (CODE:400|SIZE:3420)$
++ https://selfservice.dev.windcorp.thm/\"globals (CODE:400|SIZE:324)$
+--> Testing: https://selfservice.dev.windcorp.thm/httpads         
+{% endhighlight %}
+
+screenshot of backup im browser
 
 
 
@@ -1885,15 +2062,6 @@ Komme nicht weiter, mal mit dirb testen, wenn der vhost gesetzt ist...
 
 
 
-
-{% highlight bash %}
-
-{% endhighlight %}
-
-
-
-
-
 {% highlight bash %}
 
 {% endhighlight %}
@@ -1904,15 +2072,31 @@ Komme nicht weiter, mal mit dirb testen, wenn der vhost gesetzt ist...
 {% highlight bash %}
 
 {% endhighlight %}
-
-
-
-
 {% highlight bash %}
 
 {% endhighlight %}
+{% highlight bash %}
 
+{% endhighlight %}
+v
+v
+v
+{% highlight bash %}
 
+{% endhighlight %}
+v
+{% highlight bash %}
 
+{% endhighlight %}
+v
+v
+{% highlight bash %}
 
+{% endhighlight %}
+{% highlight bash %}
+
+{% endhighlight %}
+{% highlight bash %}
+
+{% endhighlight %}
 
