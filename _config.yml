@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: CTF Write Ups
+title: CTF Write Upsis
 email: noreply@security-manufaktur.de
 description: >- # this means to ignore newlines until "baseurl:"
   Temporary Website for CTF Preperation.
