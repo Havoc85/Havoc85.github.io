@@ -1,0 +1,36 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+.site-title::before {
+  content: url("security_manufaktur_logo_black_transbg.svg");
+  display: inline-block;
+  position: relative;
+  width: 300px;
+  top: 5px;
+}
+
+.site-title {
+  color: transparent; /* make the text invisible */
+  user-select: none; /* prevent selection of the text */
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 54px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+}
+
+.site-title, .site-title:visited {
+  // color: #424242;
+  color: transparent; /* make the text invisible */
+  user-select: none; /* prevent selection of the text */
+}
+
+.site-title, .site-title:hover {
+  // color: #424242;
+  color: transparent; /* make the text invisible */
+  user-select: none; /* prevent selection of the text */
+}
