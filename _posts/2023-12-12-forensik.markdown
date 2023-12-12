@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Cyberforensik und warum sie wichtig ist"
+date:   2023-12-12 18:37:00 +0200
+categories: forensik
+author: d33pjs
+---
+
+In vielen Sicherheitsvorfällen die ich die letzten Jahre begleitet habe, ist mir eins immer wieder über den Weg gelaufen: Es wird an der Forensik gespart. Warum die aber besonders wichtig, möchte ich in diesem Beitrag näher beleuchten. 
+
+# Begriffsdefinition
+
+Um ein einheitliches Bild davon zu bekommen, was mit Forensik gemeint ist, folgt hier kurz eine Begriffsdefinition:
+Forensik bedeutet in unserem Fall, dass analysiert wird, wie es zu einem Sicherheitsvorfall gekommen ist. Also: Wie kam es zu einem Ransomwareangriff? Und weiter: Was ist von dem Vorfall betroffen? Gemeint sind damit vor allem: Welche Daten sind betroffen? Kundendaten? Geheime Konstruktionsdaten?
+Kurz um: Forensik klärt das "Wie" und das "Was".
+
+# Experten
+
+Und genau dieser Prozess ist besonders schwierig. Denn Infrastrukturen können beliebig groß und komplex sein. Aber selbst kleine oder sehr kleine Umgebungen müssten umfangreich forensisch Analysiert werden um diese Fragen zu beantworten. Dies geschieht durch Experten. Und darauf lege ich selten so viel Wert wie an dieser Stelle. Incident-Response Analysten, IT Forensiker oder wie auch immer man sie nennen möchte, haben tiefes Know-How über Betriebssysteminternas. Müssen sich in die Angreifer hineinversetzen können. Den Weg eines Angreifers identifizieren, ohne die angesprochene Infrastruktur vorher jemals gesehen zu haben. Sie müssen in der Lage sein, schnell auf der grünen Wiese einen Überblick über die gesamte Infrastruktur zu bekommen und diese grob zu verstehen: Dabei kann jeder Client, jedes mobile Endgerät, jeder Server, jeder Switch und sogar jede Maschine (OT) oder Kühlschrank/Alexa... (IoT) wichtig sein.
+
+Und natürlich geschieht alles unter enormen Zeitdruck. Oder können Sie als Verantwortlicher so einfach ruhig warten, bis die Analyse nach einigen Wochen oder Monaten abgeschlossen sind?
+
+# Prozess
+
+Richtig gehört: Wochen oder Monaten. Es ist an dieser Stelle nicht nur die Zeit, die ein Forensiker benötigt, sondern auch wie viel Geld so ein Expert für so einen Einsatz erhält. Das scheuen viele. Und oft ist das Management eher daran interessiert den Angreifer zu identifizieren und Dingfest zu machen. Nicht nur, dass es sich sehr wahrscheinlich nicht um Hans-Jürgen aus dem Keller seiner Eltern oder um den aggressiven Konkurrenten handelt, sondern um Personen bzw. Personengruppen aus Ländern mit denen kein Polizeiabkommen besteht. Der Einzige mögliche Indikator wäre eine so genannte IP Adresse. Diese lässt sich zwar grob in eine Region und mit rechtlichem Beistand und mit Hilfe des Telekommunikationsanbieters auch auf einen Anschluss zurückführen, aber diese Art der Cyberattributierung ist in der Regel nicht die Zeit werde, die sie kostet. Denn Cybercrime Gangs, die Unternehmen um Hunderttausende oder gar Millionen bringen möchten, werden nicht von Ihrem Anschluss arbeiten. Sondern "über Eck" bzw. evtl. sogar "über viele Ecken". Der Angriff könnte also von einem Computer aus Serbien kommen, der von jemand aus Ungarn, der wiederrum aus der Slowakei, der wiederrum aus Kasachstan ferngesteuert wurde. Und der Computer in Serbien liegt schon seit vielen Jahren in irgendeiner Schublade in einem Hinterzimmer das zugemauert wurde und niemand kommt mehr physisch ran (kein Witz, so etwas hat es schon gegeben). Netzwerkkabel ziehen, geht vielleicht noch (obwohl auch das oft eine Katastrophe ist). Aber dann gibt es Million andere vergessene PCs mit denen die Angreifer weiterarbeiten können. Ein Kampf gegen Windmühlen. Nicht, dass es das nicht Wert wäre dafür zu Kämpfen. Allerdings muss eine Firma diesen wirtschaftlichen Aufwand aufbringen können und wollen. Primäres Ziel einer forensischen Analyse kann und darf das jedoch nicht sein.
+
+# Fazit
+
+"Nur" eine forensische Analyse kann sagen, wie es zu einem Sicherheitsvorfall gekommen ist. Welchen Weg die Angreifer genommen haben und welche Daten (möglicherweise) betroffen sind. Nur mit diesen Informationen bzw. Fakten kann man gute Außenkommunikation (mit Kunden, Behörden und/oder Medien) durchführen. Außerdem ist das der einzige Weg zu "lessons learned": Stopft das Loch, durch das der Angreifer rein kommen konnte oder versucht die Ausbreitung eines solchen Angriffs in Zukunft einzudämmen (Stichwort: Netzwerksegmentierung).
