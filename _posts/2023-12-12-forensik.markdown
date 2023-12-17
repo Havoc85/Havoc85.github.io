@@ -6,12 +6,11 @@ categories: forensik
 author: d33pjs
 ---
 
-In vielen Sicherheitsvorfällen die ich die letzten Jahre begleitet habe, ist mir eins immer wieder über den Weg gelaufen: Es wird an der Forensik gespart. Warum die aber besonders wichtig, möchte ich in diesem Beitrag näher beleuchten. 
+In vielen Sicherheitsvorfällen die ich die letzten Jahre begleitet habe, ist mir eins immer wieder über den Weg gelaufen: Es wird an der Forensik gespart. Warum die aber besonders wichtig ist, möchte ich in diesem Beitrag näher beleuchten. 
 
 # Begriffsdefinition
 
-Um ein einheitliches Bild davon zu bekommen, was mit Forensik gemeint ist, folgt hier kurz eine Begriffsdefinition:
-Forensik bedeutet in unserem Fall, dass analysiert wird, wie es zu einem Sicherheitsvorfall gekommen ist. Also: Wie kam es zu einem Ransomwareangriff? Und weiter: Was ist von dem Vorfall betroffen? Gemeint sind damit vor allem: Welche Daten sind betroffen? Kundendaten? Geheime Konstruktionsdaten?
+Forensik gibt es nicht nur in der Rechtsmedizin, sondern ist ein Sammelbegriff für wissenschaftliche und technische Arbeitsgebiete. So auch in der Cybersicherheit. Es geht dabei darum, kriminelle Handlungen systematisch zu untersuchen. Computer-Forensik, IT-Forensik oder Cyberforensik bedeutet also, dass analysiert wird, wie es zu einem Sicherheitsvorfall gekommen ist. Beispielsweise: Wie kam es zu einem Ransomwareangriff? Und weiter: Was ist von dem Vorfall betroffen? Gemeint sind damit vor allem, welche Daten betroffen sind. Kundendaten? Geheime Konstruktionsdaten?
 Kurz um: Forensik klärt das "Wie" und das "Was".
 
 # Experten

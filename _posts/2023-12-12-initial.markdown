@@ -6,4 +6,4 @@ categories: initial
 author: d33pjs
 ---
 
-Alle Jahre wieder versuche ich es mit einem Blog. Da der SecNik Podcast leider aktuell zum erliegen gekommen ist, ich aber trotzdem die ein oder anderen spannenden Themen habe, möchte ich es nochmal mit einem Blog versuchen. Dabei soll es allen voran um IT Security / Cybersecurity sowie Technologien gehen. Viel Spaß mit meinem nächsten Versuch.
+Alle Jahre wieder versuche ich es mit einem Blog. Da der [SecNik Podcast](https://secnik.de/) leider aktuell zum erliegen gekommen ist, ich aber trotzdem die ein oder anderen spannenden Themen habe, möchte ich es nochmal mit einem Blog versuchen. Dabei soll es allen voran um IT Security / Cybersecurity sowie Technologien gehen. Viel Spaß mit meinem nächsten Versuch.
