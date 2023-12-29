@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Zum ersten Mal CCC Congress: 37c3"
+date:   2023-12-27 20:37:00 +0200
+categories: ccc hacking 37c3 congress
+author: d33pjs
+---
+
+Das erste Mal auf einem CCC Congress: der 37C3. Ein paar Eindrücke, Tipps & Tricks - für "Ersties".
+
+
+#1 Tickets
+
+Immer wieder Pech: Während dem Vorverkauf an Karten zu kommen schien über Jahr hinweg aussichtslos. Danke eines Engels, habe ich dieses Jahr aber endlich sichere Karten bekommen. Inzwisch weiß ich, dass es auch eine Kartenbörse gibt. Oft werden diese dann von privat verkauft. Austausch über Threema oder per Telefon. Der CCC möchte, dass die Karten im selben Preisrahmen bleiben. Teurere habe ich daher dieses Jahr keine entdeckt. Das heißt: Wer absolut nicht an Karten kommen konnte, kann das schwarze Brett ausprobieren.
+
+#2 Vorverkauf
+
+Bis ein paar Tage vor dem Congress, gibt es auch einen Vorverkauf für Merch (in 2023 wurde der Vorverkauf am 20.12. geschlossen). Diesen kann ich absolut empfehlen. An Tag 1 werden nämlich am Merch Stand nur Kleider vom Vorverkauf ausgegeben. An Tag 2 ist der Stand dann für alle geöffnet... und ihr könnt euch vorstellen: Da gibt es *meterlange* Schlange. Wir haben 1h in der Schlange gestanden (obwohl wir schon eine halbe Stunde früher dort waren).
+
+#3 Hotel
+
+Manche schlafen sogar auf dem Congress... Ob das erlaubt ist bzw. gern gesehen, weiß ich nicht. Aber wer in einem normalen Bett liegen möchte, der kann sich in ein Hotel einmieten. Das Raddison Blu in Hamburg ist natürlich predistiniert. Weil direkt an dem CCH, dafür aber "teuer". Ansonsten gibt es über die Straße (maximal 10 Minuten zu Fuß) ein komisches Hotel Konzept mit... verschiedenen Hotels auf verschiedenen Etagen?!... Ganz unten: Hotel Wagner. Ist zum Congress immer noch sehr teuer für das Standard Doppelzimmer, die dann auch noch sehr klein sind (können wir nicht ausnahmslos empfehlen).
+
+#4 Kids
+
+Im Vergleich zur DEF CON (erst Recht natürlich zur black hat oder RSA) wird hier ganz offensichtlich Eins groß geschrieben: Kinder. Es scheint wirklich viel zu "mitmachen" für Kinder zu geben. Und es kommen auch viele mit Ihren Kindern. Mich freut das und ich sehe die Wichtigkeit für diese Art von Aufklärung und Informationen sehr hoch.
+
+
+
