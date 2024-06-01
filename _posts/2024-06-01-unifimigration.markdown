@@ -1,14 +1,12 @@
 ---
 layout: post
-title:  "UniFi Migration: USG + separatem Controller zu UCG"
+title:  "Einfache Anleitung: Migration von UniFi Security Gateway (USG) zu UniFi Cloud Gateway Ultra (UCG)"
 date:   2024-06-01 21:59:00 +0200
 categories: ubiquiti unifi firewall migration
 author: d33pjs
 ---
 
-# Einfache Anleitung: Migration von UniFi Security Gateway (USG) zu UniFi Cloud Gateway Ultra (UCG)
-
-## Einführung
+# Einführung
 
 Wenn du dich fragst, was die Abkürzungen im Titel bedeuten und worum es in diesem Blogeintrag geht, hier eine kurze Erklärung:
 
@@ -21,7 +19,7 @@ Kurze Zusammenfassung:
 
 Da ein Austausch solcher Geräte oft kompliziert sein kann, möchte ich mein Vorgehen beim Ersatz der alten USG durch eine UCG teilen.
 
-## Rahmenbedingungen
+# Rahmenbedingungen
 
 Bei mir sieht die Netzwerkumgebung wie folgt aus:
 - Provider FRITZ!Box
@@ -30,12 +28,10 @@ Bei mir sieht die Netzwerkumgebung wie folgt aus:
 - 4x Switche (alle UniFi, von 16 Port PoE bis hin zu kleinen 5 Port Flex)
 - Management/Controller (die "Network Application" von UniFi) auf einem Raspberry Pi 4 in einem separaten Management-Netz
 
-## Der Plan
+# Hintergrund: Der Plan / Das Ziel
 Die USG und der RasPi-Controller sollen (beide) durch die UCG ersetzt werden. Die USG konnte keinen ausreichenden IDS-Throughput mehr leisten und hatte häufige Probleme bei Regelwerksänderungen. Zudem wurde die Controller-Software nicht mehr automatisch aktualisiert (WTF, UniFI?).
 
----
-
-## Vorgehen - Detailliert
+# Vorgehen - Detailliert
 
 Hier die detaillierten Schritte zur Migration, gefolgt von einer kurzen Zusammenfassung (TL;DR):
 
@@ -82,16 +78,16 @@ Hier die detaillierten Schritte zur Migration, gefolgt von einer kurzen Zusammen
 4. **Fertigstellen:**
    - Alle UniFi-Geräte verbinden, prüfen und fertig.
 
----
+# Bekannte Probleme
 
-## Bekannte Probleme
-
-### config.gateway.json (DNS, NAT)
+## config.gateway.json (DNS, NAT)
 Manuelle DNS-Einträge und NAT-Einstellungen müssen neu vorgenommen werden, da die `config.gateway.json` nicht übernommen wird.
 
-### Access Point Probleme
+## Access Point Probleme
 802.1x-Profile wurden migriert, jedoch hatten einige Geräte Verbindungsprobleme. Ein kurzer Neustart des Access Points löste das Problem.
 
+
 ---
+
 
 Mit dieser Anleitung sollte die Migration von einer USG zu einer UCG reibungsloser verlaufen. Falls du Fragen oder Anmerkungen hast, hinterlasse gerne einen Kommentar!
