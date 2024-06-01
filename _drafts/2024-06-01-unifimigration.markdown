@@ -6,66 +6,92 @@ categories: ubiquiti unifi firewall migration
 author: d33pjs
 ---
 
-# kurze Einführung
+# Einfache Anleitung: Migration von UniFi Security Gateway (USG) zu UniFi Cloud Gateway Ultra (UCG)
 
-Um kurz alle Abzuholen, was die kryptischen Abkürzungen im Titel sein sollen und worum es in diesem Blogeintrag überhaupt geht, nachfolgend ein paar einführende Worte.
+## Einführung
 
-Meine betagte Firewall, das UniFi Security Gateway (typischerweise und nachfolgend USG abgekürzt), sollte ersetzt werden. Bei diesem Versuch hatte ich vor einigen Monaten schon Mal schlechte Erfahrungen mit der (damals) neu eingeführten UniFi Express (UX) gemacht, aber inzwischen ist das UniFi Cloud Gateway Ultra (UCG-Ultra, nachfolgend UCG) heraus gekommen die vielleicht endlich Erlösung bringt (und nicht so teuer wie die Dream Machines sind). Nur typisch Ubiquiti: Im Onlinestore war sie selten vorrätig. 
+Wenn du dich fragst, was die Abkürzungen im Titel bedeuten und worum es in diesem Blogeintrag geht, hier eine kurze Erklärung:
 
-Ganz kurz: Die UX ist eine Firewall, Access Point und Management/Controller in Einem - gedacht für kleine Umgebungen (allerdings stand __nur im Kleingedruckten__, dass man maximal 5 weitere UniFi Geräte verwalten kann - ein Gerät zu wenig für mich, was außerdem zu komischen Phänomen bei der Migration geführt hat). Die UCG ist hingegen "nur" eine Firewall und ein Management (30+ UniFi Geräte, 300+ Clients - was auch immer diese Marketingzahlen von Ubiquiti heißen sollen) - kein Access Point.
+Meine betagte Firewall, das UniFi Security Gateway (USG), sollte ersetzt werden. Zuvor hatte ich schlechte Erfahrungen mit der UniFi Express (UX) gemacht. Nun gibt es jedoch das UniFi Cloud Gateway Ultra (UCG), das möglicherweise eine bessere Lösung darstellt und nicht so teuer wie die Dream Machines ist. Allerdings war es im Online-Shop oft ausverkauft.
 
-Da so ein Austausch manchmal etwas hakelig sein, man bei den Gedankenspielen schnell ein Knoten im Hirn bekommen und man sich schnell den Ast auf dem man Sitzt absägen kann, hier mein Vorgehen zum Austausch der alten USG + Management durch eine UCG.
+Kurze Zusammenfassung:
+- Die USG... ist alt. Eine reine Firewall.
+- Die UX ist eine Kombination aus Firewall, Access Point und Management/Controller, geeignet für kleine Umgebungen (maximal 5 UniFi-Geräte).
+- Die UCG ist eine reine Firewall und ein Management-Gerät (30+ UniFi-Geräte, 300+ Clients), jedoch kein Access Point.
 
-# Rahmenbedingungen
+Da ein Austausch solcher Geräte oft kompliziert sein kann, möchte ich mein Vorgehen beim Ersatz der alten USG durch eine UCG teilen.
 
-Bei mir findet man folgenden Aufbau vor:
-* Provider FRITZ!Box
-* 1x Firewall (alt: USG)
-* 1x Access Point (U6-LR)
-* 4x Switche (alle UniFi, von 16 Port bis hin zu kleinen 5 Port Flex)
-* Management / Controller (also die von UniFi genannte "Network Application") auf einem Raspberry Pi 4 in einem separaten Management Netz
+## Rahmenbedingungen
 
-Das heißt, der Plan: USG Firewall und Raspi-Controller sollen durch durch die UCG ersetzt werden. Denn: Die USG konnte keinen ausreichenden IDS Throughput mehr leisten, hat sich sehr häufig (fast bei jeder Regelwerksänderung) verschluckt und die Controller Software wird nicht mehr automatisch geupdated. 
+Bei mir sieht die Netzwerkumgebung wie folgt aus:
+- Provider FRITZ!Box
+- 1x Firewall (alt: USG)
+- 1x Access Point (U6-LR)
+- 4x Switche (alle UniFi, von 16 Port PoE bis hin zu kleinen 5 Port Flex)
+- Management/Controller (die "Network Application" von UniFi) auf einem Raspberry Pi 4 in einem separaten Management-Netz
 
-# Vorgehen - detailliert
+## Der Plan
+Die USG und der RasPi-Controller sollen (beide) durch die UCG ersetzt werden. Die USG konnte keinen ausreichenden IDS-Throughput mehr leisten und hatte häufige Probleme bei Regelwerksänderungen. Zudem wurde die Controller-Software nicht mehr automatisch aktualisiert (WTF, UniFI?).
 
-Nun zur Migration. Meine Schritte im Detail, im Anschluss noch ein TL;DR - wobei ich mir vorstellen könnte, dass es hier und da auch noch Abkürzungen geben könnte
-* Die UCG habe ich neben die USG an einen freien Port der FRITZ!Box gesteckt und eingeschaltet.
-* Nachdem die UCG gebootet hat (über das kleine LED Display an der Vorderseite zu sehen), habe ich mich (leider) mit der mobilen App verbunden (das gehate darüber, wie man sowas machen kann, erspare ich mir) - das ging über Bluetooth recht simple.
-* Ein paar Fragen zur Erstinstallation habe ich beantwortet, habe aber, nachdem die UCG wieder gerebootet wurde und automatisch ohne zu Fragen ein neues Firmware Update installiert hat (hat sicher 15 Minuten gedauert), vergessen mich bei ui.com anzumelden.
-* Obwohl die UCG hochgefahren war, konnte ich sie nicht mehr finden - auch über die IP Adresse (über das FRITZ!Box Interface), kam ich an kein Management Interface heran (laut Nmap alle Ports geschlossen). Die mobile App hat die UCG auch nicht mehr gefunden (wobei ich hier auch noch mit einem anderen Netz hinter der USG verbunden war).
-* Daher: Reset (10 Sekunden den Resetbutton an der Rückseite gedrückt halten) und während dem Reboot+Reset die mobile App an ui.com angemeldet.
-* Während dessen habe ich zusätzlich das WLAN der FRITZ!Box eingerichtet, aktiviert und mein Handy mit dem FIRTZ!Box WLAN verbunden, statt mit meinem "internen Netz"... (auch hier spare ich mir den Hate für solche schlecht gemachten Autodiscovery Funktionen...)
-* Also, alles auf Start, aber dieses Mal klappt's: die Fragen zur Erstinstallation schnell durchgeklickt, nach dem Neustart konnte ich die UCG dann (endlich) über https://unifi.ui.com bzw. über die IP Adresse https://192.168.115.3 (IP Subnetz auf meiner FRITZ!Box) erreichen.
+---
 
-Der Rest geht dann schnell:
-* Von meinem Controller das aktuellste Backup (unter Einstellungen, System, Backup, Download) erstellt und heruntergeladen (waren bei mir so rund 50 MB) und auf der UCG in den selben Einstellungen auf Restore hochgeladen. Trotz des Versionsunterschiedes (auf dem RasPi hatte ich die 7.4.156 drauf) gab es keine Probleme. 
-* Nach dem Reboot war die UCG bereits ein Abbild der alten USG+Controller, nur eben mit den neuen Funktionen der 8er Version (aktuell bei mir 8.1.127)
-* Als nächstes habe ich die USG physisch durch die UCG ausgetauscht (und auf so Details geachtet wie Exposed Host Settings auf der FRITZ!Box und statische IP Adresse für die neue UCG, die die gleiche IP wie die alte USG bekommen sollte - da waren auch ein paar Neustarts auf der FRITZ!Box notwendig, bis da alles sauber war)
-* Wichtig: Als nächstes müssen alle UniFi Geräte (siehe oben: Access Point und Switche) zur neuen UCG verbinden. Das geht über das alte Management: Dort unter System, Advanced: "Inform Host" (und dort dann einfach die IP der neuen Firewall eintragen). Nach 10-15 Minuten waren auf dem alten Controller alle Devices offline und auf der neuen UCG alle devices Online.
+## Vorgehen - Detailliert
 
-# Vorgehen - tl;dr
+Hier die detaillierten Schritte zur Migration, gefolgt von einer kurzen Zusammenfassung (TL;DR):
 
-* UCG an freien Port mit Internet angesteckt und gestartet
-    * Hinweise:
-        * Erstinstallation nach Boot geht (inzwischen) nur über die mobile UniFi App
-        * angeblich müsst ihr im selben Subnetz der neuen UCG sein, anders hat es bei mir auch nicht funktioniert
-        * erreichbar ist die UCG __nach erfolgreicher Einrichtung__ dann über https://unifi.ui.com oder https://<ipaddresse> (kein Port wie 8443 oder so)
-        * nach der Ersteinrichtung wurde in meinem Fall automatisch das aktuellste Firmwareupdate installiert (kann einige Minuten dauern, bei mir so ca. 15 Minuten)
-* Restore eines Backups 
-    * Hinweis: 
-        * Backup von Version 7.4.156 und Restore auf 8.1.127 hat bei mir einwandfrei geklappt (siehe Known Issues, gerade bei config.gateway.json)
-* (pyhsischer) Austausch: USG herunterfahren, USG durch UCG ersetzen, UCG starten
-* über alten Controller (**Wichtig!**) "Inform Host" auf neue IP der UCG im Management Netz (also die IP, über die die UCG erreicht werden kann, es wird automatisch ein Reboot durchgeführt)
-* Fertig (schaut Euch trotzdem nochmal kurz die nachfolgenden Known Issues bzw. Hickups an)
+1. **Vorbereitung der UCG:**
+   - UCG an einen freien Port der FRITZ!Box anschließen und einschalten.
+   - Nach dem Booten der UCG (erkennbar über das LED-Display) mit der mobilen App verbinden (angeblich per Bluetooth?!).
+   - Einige Fragen zur Erstinstallation beantworten. Die UCG wird beim Reboot automatisch ein Firmware-Update installieren (dauert etwa 15 Minuten).
+   - In meiner Erstinstallation habe ich vergessen, die mobile App bei ui.com anzumelden. UCG war (vielleicht deshalb) anschließend nicht erreichbar.
 
-# Known Issues
+2. **Reset der UCG:**
+   - UCG resetten (Reset-Button 10 Sekunden gedrückt halten)
+   - Währenddessen die mobile App bei ui.com anmelden
+   - WLAN der FRITZ!Box einrichten und aktivieren, Handy mit dem FRITZ!Box WLAN verbinden (denn angeblich müssen die App und die UCG im selben Subnetz sein)
 
-## config.gateway.json (DNS, NAT...)
-Nichts desto trotz gab es ein paar Probleme. Über die "magische" Datei `config.gateway.json` (auf dem Controller unter `/usr/lib/unifi/data/sites_default` zu finden) habe ich ein paar DNS Einträge (CNAMEs und so) und NAT Einstellungen vorgenommen. Die wurden (natürlich?) nicht übernommen. Inzwischen sind aber zumindest manuelle DNS Einträge über das jeweilige Endgerät in der Network Appliance zu hinterlegen. Das musste ich dann bei den wichtigsten Geräten manuell nachtragen.
-Wer die Datei aber nie benutzt oder angepasst hat, hat hier auf jeden Fall keine Probleme.
+3. **Erneute Einrichtung:**
+   - UCG erneut einrichten. Nach dem Neustart ist die UCG dann über https://unifi.ui.com oder die IP-Adresse https://192.168.115.3 erreichbar.
 
-## Access Point Hickup
-Um eine SSID für IoT Geräte weiter aufzuteilen, habe ich mit 802.1x Profilen gearbeitet. Diese wurden zwar automatisch migriert, aber aus irgendeinem Grund konnten sich diverse Endgeräte nicht mit dem WLAN Verbinden. Allen voran der Thermomix, der natürlich just genau in dem Moment von meiner Partnerin Verwendung finden wollte. Kurz den AP stromlos machen, hat aber geholfen. Nach wenigen Sekunden konnten sich auch alle anderen Geräte weiter einwandfrei verbinden.
+4. **Backup und Wiederherstellung:**
+   - Aktuelles Backup vom Controller erstellen (Einstellungen, System, Backup, Download) und auf der UCG wiederherstellen. Trotz Versionsunterschied (7.4.156 auf dem RasPi, 8.1.127 auf der UCG) gab es keine Probleme.
+   - Nach dem Reboot ist die UCG ein Abbild der alten USG + dem alten Controller, jedoch mit den neuen Funktionen der Version 8.
 
+5. **Physischer Austausch:**
+   - USG herunterfahren und durch UCG ersetzen.
+   - Auf der FRITZ!Box die Einstellungen anpassen (Exposed Host, statische IP für die UCG).
+   
+6. **Geräte verbinden:**
+   - **Wichtig** den alten UniFi-Geräte muss der neue Controller bekannt gemacht werden. Das geht **NUR** über den alten Controller unter: System, Advanced: "Inform Host". Dort die IP der neuen Firewall eintragen, fertig. Nach 10-15 Minuten (sollten) alle Geräte auf der neuen UCG online sein (und auf dem alten Controller: offline).
 
+## Vorgehen - TL;DR
+
+1. **UCG anschließen und starten:**
+   - Erstinstallation nur über die mobile UniFi-App möglich.
+   - UCG muss im selben Subnetz erreichbar.
+   - Nach der Einrichtung über https://unifi.ui.com oder die IP-Adresse (https, kein separater Port) erreichbar.
+   - Automatischer Firmware-Update dauert ca. 15 Minuten.
+
+2. **Backup wiederherstellen:**
+   - Backup wiederherstellen. Von Version 7.4.156 und Restore auf 8.1.127 funktionierte in meinem Setup einwandfrei.
+
+3. **Austausch:**
+   - USG herunterfahren, durch UCG ersetzen, UCG starten.
+   - Über alten Controller "Inform Host" auf neue IP der UCG.
+
+4. **Fertigstellen:**
+   - Alle UniFi-Geräte verbinden, prüfen und fertig.
+
+---
+
+## Bekannte Probleme
+
+### config.gateway.json (DNS, NAT)
+Manuelle DNS-Einträge und NAT-Einstellungen müssen neu vorgenommen werden, da die `config.gateway.json` nicht übernommen wird.
+
+### Access Point Probleme
+802.1x-Profile wurden migriert, jedoch hatten einige Geräte Verbindungsprobleme. Ein kurzer Neustart des Access Points löste das Problem.
+
+---
+
+Mit dieser Anleitung sollte die Migration von einer USG zu einer UCG reibungsloser verlaufen. Falls du Fragen oder Anmerkungen hast, hinterlasse gerne einen Kommentar!
