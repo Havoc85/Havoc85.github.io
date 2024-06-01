@@ -29,7 +29,7 @@ Bei mir sieht die Netzwerkumgebung wie folgt aus:
 - Management/Controller (die "Network Application" von UniFi) auf einem Raspberry Pi 4 in einem separaten Management-Netz
 
 # Hintergrund: Der Plan / Das Ziel
-Die USG und der RasPi-Controller sollen (beide) durch die UCG ersetzt werden. Die USG konnte keinen ausreichenden IDS-Throughput mehr leisten und hatte häufige Probleme bei Regelwerksänderungen. Zudem wurde die Controller-Software nicht mehr automatisch aktualisiert (WTF, UniFI?).
+Die USG und der RasPi-Controller sollen (beide) durch die UCG ersetzt werden. Die USG konnte keinen ausreichenden IDS-Throughput mehr leisten und hatte häufige Probleme bei Regelwerksänderungen. Zudem wurde die Controller-Software nicht mehr automatisch aktualisiert (WTF, UniFi?).
 
 # Vorgehen - Detailliert
 
