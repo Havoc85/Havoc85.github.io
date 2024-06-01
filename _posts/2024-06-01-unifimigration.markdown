@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "UniFi Migration: USG + separatem Controller zu UCG"
-date:   2023-12-27 20:37:00 +0200
+date:   2024-06-01 21:59:00 +0200
 categories: ubiquiti unifi firewall migration
 author: d33pjs
 ---
