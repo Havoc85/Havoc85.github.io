@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Einfache Anleitung: Migration von UniFi Security Gateway (USG) zu UniFi Cloud Gateway Ultra (UCG)"
+title:  "Einfache Anleitung: UniFi (Firewall) Migration von USG zu UCG"
 date:   2024-06-01 21:59:00 +0200
 categories: ubiquiti unifi firewall migration
 author: d33pjs
@@ -10,10 +10,10 @@ author: d33pjs
 
 Wenn du dich fragst, was die Abkürzungen im Titel bedeuten und worum es in diesem Blogeintrag geht, hier eine kurze Erklärung:
 
-Meine betagte Firewall, das UniFi Security Gateway (USG), sollte ersetzt werden. Zuvor hatte ich schlechte Erfahrungen mit der UniFi Express (UX) gemacht. Nun gibt es jedoch das UniFi Cloud Gateway Ultra (UCG), das möglicherweise eine bessere Lösung darstellt und nicht so teuer wie die Dream Machines ist. Allerdings war es im Online-Shop oft ausverkauft.
+Meine betagte Firewall, das UniFi Security Gateway (USG), sollte ersetzt werden. Bei einer vorherigen Migration hatte ich schlechte Erfahrungen mit der UniFi Express (UX) gemacht. Nun gibt es jedoch das UniFi Cloud Gateway Ultra (UCG), das möglicherweise eine bessere Lösung darstellt und nicht so teuer wie die Dream Machines ist (auch beim Thema Strom). Allerdings war die UCG im Online-Shop oft ausverkauft.
 
-Kurze Zusammenfassung:
-- Die USG... ist alt. Eine reine Firewall.
+## Kurze Zusammenfassung:
+- Die USG... ist alt. Eine reine Firewall, inzwischen ziemlich langsam.
 - Die UX ist eine Kombination aus Firewall, Access Point und Management/Controller, geeignet für kleine Umgebungen (maximal 5 UniFi-Geräte).
 - Die UCG ist eine reine Firewall und ein Management-Gerät (30+ UniFi-Geräte, 300+ Clients), jedoch kein Access Point.
 
@@ -78,16 +78,17 @@ Hier die detaillierten Schritte zur Migration, gefolgt von einer kurzen Zusammen
 4. **Fertigstellen:**
    - Alle UniFi-Geräte verbinden, prüfen und fertig.
 
-# Bekannte Probleme
+<br>
 
+# Bekannte Probleme
 ## config.gateway.json (DNS, NAT)
 Manuelle DNS-Einträge und NAT-Einstellungen müssen neu vorgenommen werden, da die `config.gateway.json` nicht übernommen wird.
 
 ## Access Point Probleme
 802.1x-Profile wurden migriert, jedoch hatten einige Geräte Verbindungsprobleme. Ein kurzer Neustart des Access Points löste das Problem.
 
-
+<br>
 ---
-
+<br>
 
 Mit dieser Anleitung sollte die Migration von einer USG zu einer UCG reibungsloser verlaufen. Falls du Fragen oder Anmerkungen hast, hinterlasse gerne einen Kommentar!
