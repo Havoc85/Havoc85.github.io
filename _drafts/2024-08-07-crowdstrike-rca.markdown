@@ -27,4 +27,4 @@ Jedes Channel File, ist mit einem bestimmten Template Typ ausgestattet. Diese Te
 
 ## Fehlerbild
 
-Der seit Februar existierende neue Template Typ wurde so programmiert, dass 21 Parameter übergeben werden müssen. Das Channel File mit der Nummer 291, das am 19.07.2024 für die Kunden zur Verfügung gestellt wurde und erstmals den neuen Template Typ für IPC verwendete, nutzte 
+Der seit Februar neu existierende Template Typ wurde so programmiert, dass 21 Parameter übergeben werden können. Das Channel File mit der Nummer 291, das am 19.07.2024 für die Kunden zur Verfügung gestellt wurde und erstmals den neuen Template Typ für IPC verwendete, brachte zwei neue IPC Template Typen mit. Eines davon nutze den 21. Parameter, der aber leider von der Fehlerprüfung
