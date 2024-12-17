@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "SBOM: Die Zutatenliste für Software - stärkt Transparenz, Sicherheit und Vertrauen"
+title:  "SBOM: Die Zutatenliste für Software"
 date:   2024-12-17 21:29:00 +0100
 categories: SBOM BOM CycloneDX SPDX OpenSource OSS
 author: d33pjs
 ---
 
-## SBOM – Die Zutatenliste für Softwareprodukte**
+## SBOM – Die Zutatenliste für Softwareprodukte
 
 In einer zunehmend digitalisierten Welt ist Software allgegenwärtig: Sie steuert unsere Produktionsabläufe, bildet das Rückgrat von Cloud-Infrastrukturen und ermöglicht neue Geschäftsmodelle. Eigentlich existiert kaum ein elektronisches Gerät ohne Software. Im Auto beispielsweise gibt es, vereinfacht gesagt, nicht nur Software im Entertainmentsystem, sondern auch im Bremssystem oder bei den Fensterhebern.
 
