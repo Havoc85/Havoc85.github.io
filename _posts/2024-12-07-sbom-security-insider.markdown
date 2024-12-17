@@ -52,4 +52,4 @@ Herr Kehl, ich schätze es, dass Sie das Thema SBOM aufgreifen, doch Ihr Artikel
 
 Mit besten Grüßen
 
-[Update 07.12.2024: Habe zusätzlich den Ursprnungsbeitrag von Security-Insider als Wayback Machine Link hinzugefügt, die Darstellung etwas verbesert, Ergänzung in Kapitel 2, zweiter Abschnitt, Rechtschreibung in Kapitel 4, zweiter Absatz verbessert.]
+[Update 07.12.2024: Habe zusätzlich den Ursprunungsbeitrag von Security-Insider als Wayback Machine Link hinzugefügt, die Darstellung etwas verbesert, Ergänzung in Kapitel 2, zweiter Abschnitt, Rechtschreibung in Kapitel 4, zweiter Absatz verbessert.]
