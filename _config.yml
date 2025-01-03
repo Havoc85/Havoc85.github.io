@@ -23,7 +23,7 @@ email: noreply@security-manufaktur.de
 description: >- # this means to ignore newlines until "baseurl:"
   A Blog about Cybersecurity and Technology
 domain: "blog.security-manufaktur.de"
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.security-manufaktur.de" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 #github_username:  jekyll
