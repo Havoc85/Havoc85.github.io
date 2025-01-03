@@ -12,7 +12,7 @@ author: d33pjs
 
 Wenn bei euch Symbole wie im folgenden Beispiel, insbesondere in nvim, nicht korrekt dargestellt werden:
 
-![nvim_font_error](/assets/nvim_font_error.png)
+![nvim_font_error](assets/nvim_font_error.png)
 
 bin ich bei der Recherche auf diesen Reddit-Eintrag gestoßen:  
 [Reddit - Nvim: not able to see some icons](https://www.reddit.com/r/neovim/comments/12uovl4/nvim_not_able_to_see_some_icons/?rdt=40765)

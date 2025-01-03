@@ -15,7 +15,7 @@ Gestern hat Crowdstrike ihre Analyse des Ausfalls unter [Crowdstrike, External T
 Am Morgen des 19.07.2024 sind auf der ganzen Welt viele Millionen Endgeräte mit Windows Betriebssystem aufgrund eines Softwareproblems mit der Sicherheitssoftware von Crowdstrike (Falcon) ausgefallen. Dies führte international zu Flugausfällen und sogar zu Problemen an der Börse.
 Nicht zu schweigen von den vielen Problemen bei Firmen und in diversen Lieferketten z.B. bei Automobilherstellern.
 
-Crowdstrike, ein Hersteller von *Sicherheitssoftware* hat also geschafft, was Ransomware immer wieder probiert.
+Crowdstrike, ein Hersteller von _Sicherheitssoftware_ hat also geschafft, was Ransomware immer wieder probiert.
 
 ## technische Crowdstrike Grundlagen
 
@@ -23,7 +23,7 @@ Der CrowdStrike Falcon Sensor ist die Software, die auf dem jeweiligen Endgerät
 
 Diese KI-Modelle werden immer wieder aktualisiert. Diese Updates kommen von Telemetriedaten anderer Kunden (gefiltert und aggregiert) und werden von Menschen aus dem "Falcon Adversary OverWatch", dem "Falcon Complete" und den "CrowdStrike threat detection engineers" überarbeitet, verbessert bzw. überprüft. Außerdem werden diese Updates über die Cloud aktualisiert bzw. an die Kunden übertragen. Hierbei handelt es sich um kombinierte Daten aus built-in Sensor Inhalten und den so genannten Rapid Response Contents. Der Vorteil der Rapid Response Conents ist, dass damit neue Regeln für Angriffe an die Kunden ausgegeben werden können, ohne Updates für die Falcon Software an sich bereitstellen zu müssen. Diese Rapid Response Contents werden über so genannte Channel Files übertragen und vom Sensor Content Interpreter über eine Regular-Expression basierte Engine ausgeführt.
 
-Jedes Channel File, ist mit einem bestimmten Template Typ ausgestattet. Diese Template Typen werden dann bei bestimmten Aktivitäten auf dem Endgerät gegenüber den Angriffsregeln aus den Rapid Response Contents gematched. Für die Version 7.11 des Falcon Sensors im Februar 2024 ist ein neuer Template Typ hinzugekommen, um IPC Aktivitäten zu überprüfen (Windows interprocess communication) und Angriffe mit so genannten "named pipes" zu identifizieren und zu verhindern. 
+Jedes Channel File, ist mit einem bestimmten Template Typ ausgestattet. Diese Template Typen werden dann bei bestimmten Aktivitäten auf dem Endgerät gegenüber den Angriffsregeln aus den Rapid Response Contents gematched. Für die Version 7.11 des Falcon Sensors im Februar 2024 ist ein neuer Template Typ hinzugekommen, um IPC Aktivitäten zu überprüfen (Windows interprocess communication) und Angriffe mit so genannten "named pipes" zu identifizieren und zu verhindern.
 
 ## Fehlerbild
 
