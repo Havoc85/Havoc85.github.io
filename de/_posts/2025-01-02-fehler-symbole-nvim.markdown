@@ -2,7 +2,8 @@
 layout: post
 title: "Fehlerhafte Symboldarstellung in Nvim / NeoVim"
 date: 2025-01-02 17:15:00 +0100
-categories: font nvim
+tags: [font, nvim]
+lang: de
 author: d33pjs
 ---
 

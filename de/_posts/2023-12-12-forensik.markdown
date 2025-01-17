@@ -1,12 +1,13 @@
 ---
 layout: post
-title:  "Cyberforensik und warum sie wichtig ist"
-date:   2023-12-12 18:37:00 +0200
-categories: forensik
+title: "Cyberforensik und warum sie wichtig ist"
+date: 2023-12-12 18:37:00 +0200
+tags: [forensik]
+lang: de
 author: d33pjs
 ---
 
-In vielen Sicherheitsvorfällen die ich die letzten Jahre begleitet habe, ist mir eins immer wieder über den Weg gelaufen: Es wird an der Forensik gespart. Warum die aber besonders wichtig ist, möchte ich in diesem Beitrag näher beleuchten. 
+In vielen Sicherheitsvorfällen die ich die letzten Jahre begleitet habe, ist mir eins immer wieder über den Weg gelaufen: Es wird an der Forensik gespart. Warum die aber besonders wichtig ist, möchte ich in diesem Beitrag näher beleuchten.
 
 # Begriffsdefinition
 
